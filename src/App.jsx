@@ -1,0 +1,211 @@
+import './App.css'
+import Footer from './components/Footer'
+import Navbar from './components/Navbar'
+import Header from './components/Header'
+import Qualification from './components/Qualification'
+import ContactMe from './components/ContactMe'
+import AboutMe from './components/AboutMe'
+import Project from './components/Project'
+import { BrowserRouter, Routes, Route } from 'react-router-dom'
+
+
+function App() {
+const userD={
+      name:"Vaishnavi Suryawanshi", 
+      description:"Your user description in a portfolio should be a short, high-impact value proposition statement that tells recruiters and hiring managers who you help, what you do, and your unique approach."
+      }
+
+       const qualifications = [
+        {
+            title: "Bachelor of Engineering",
+            subtitle: "Computer Science",
+            institution: "ABC Institute of Technology",
+            duration: "2016 - 2020",
+            grade: "8.5 CGPA"
+        },
+        {
+            title: "Higher Secondary Certificate",
+            subtitle: "Science",
+            institution: "XYZ Junior College",
+            duration: "2014 - 2016",
+            grade: "82%"
+        },
+        {
+            title: "Secondary School Certificate",
+            subtitle: "SSC",
+            institution: "XYZ High School",
+            duration: "2014",
+            grade: "90%"
+        }
+    ];
+    const aboutMe = {
+
+
+        skills: [
+            "JavaScript",
+            "React.js",
+            "Node.js",
+            "Express.js",
+            "REST API",
+            "MongoDB",
+            "MySQL",
+            "Git & GitHub",
+        ],
+
+          technologies:{
+            frontend: [
+                "HTML5",
+                "CSS3",
+                "JavaScript",
+                "React.js",
+                "Bootstrap",
+                "Redux Toolkit"
+            ],
+
+            backend: [
+                "Node.js",
+                "Express.js",
+                "REST API",
+                "JWT Authentication",
+                "Multer"
+            ],
+
+            database: [
+                "MongoDB",
+                "MySQL",
+            ],
+
+            genAI: [
+                "Generative AI",
+                "LLMs",
+                "Prompt Engineering",
+                "OpenAI API",
+                "AI Chatbots",
+                "RAG"
+            ]
+          },    
+
+        developmentAreas: [
+            "Web Application Development",
+            "REST API Development",
+            "Authentication & Authorization",
+            "Database Design",
+            "AI-powered Applications"
+        ],
+
+        interests: [
+            "Building real-world projects",
+            "Learning new technologies",
+            "AI & Generative AI"
+        ]
+      }
+
+    const Projects= [
+        {
+            id: 1,
+            title: "E-Commerce Platform",
+            category: "MERN Stack",
+            description:
+                "A full-stack e-commerce platform with product management, user authentication, shopping cart, orders, payments, and admin dashboard.",
+
+            features: [
+                "User Registration & Login",
+                "Product Listing & Search",
+                "Product Categories",
+                "Shopping Cart",
+                "Wishlist",
+                "Order Management",
+                "Admin Dashboard",
+                "JWT Authentication"
+            ],
+
+            role: "Full Stack Developer",
+
+            github: "https://github.com/yourusername/ecommerce",
+            liveDemo: "https://your-ecommerce-demo.com",
+
+            image: "/projects/ecommerce.png"
+        },
+
+        {
+            id: 2,
+            title: "Learning Management System",
+            category: "MERN Stack",
+            description:
+                "A role-based Learning Management System where admins, instructors, and students can manage courses, lectures, enrollments, quizzes, and learning progress.",
+
+            features: [
+                "Admin Dashboard",
+                "Instructor Management",
+                "Course Management",
+                "Lecture Management",
+                "Student Enrollment",
+                "Video Lectures",
+                "Quiz & Assessment",
+                "Progress Tracking",
+                "Role-Based Access",
+                "Cloudinary File Upload"
+            ],
+
+            role: "Full Stack Developer",
+
+            github: "https://github.com/yourusername/mern-lms",
+            liveDemo: "https://your-lms-demo.com",
+
+            image: "/projects/lms.png"
+        },
+
+        {
+            id: 3,
+            title: "Project Management System",
+            category: "MERN Stack",
+            description:
+                "A project management application that helps teams manage projects, assign tasks, track progress, and manage users with role-based access.",
+
+            features: [
+                "User Authentication",
+                "Role-Based Access",
+                "Project Management",
+                "Task Assignment",
+                "Task Tracking",
+                "User Management",
+                "HOD Management",
+                "Admin Approval System",
+                "Document Upload",
+                "Dashboard & Reports"
+            ],
+
+            role: "Full Stack Developer",
+
+            github: "https://github.com/yourusername/project-management",
+            liveDemo: "https://your-project-demo.com",
+
+            image: "/projects/project-management.png"
+        }
+    ];
+    
+    
+
+  return (
+    <BrowserRouter>
+    <Navbar/>
+
+
+    <Routes>
+      <Route path='/' element={<Header userDetails={userD}></Header>}></Route>
+      <Route path='/qua' exact element={<Qualification qua={qualifications}></Qualification>}></Route>
+      <Route path='/projects' element={<Project Project={Projects}/>}></Route>
+      <Route path='/about me' element={<AboutMe myInfo={aboutMe} myName={userD}/>}></Route>
+      <Route path='/contact me' element={<ContactMe/>}></Route>
+      
+      
+      
+    </Routes>
+
+
+    <Footer/>
+    </BrowserRouter>
+  )
+}
+
+export default App
